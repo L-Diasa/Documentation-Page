@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Js Documentation</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#ff69b4">
+    <meta name="description" content="💀🤘">
+
+    <link rel="stylesheet" href="https://storage.googleapis.com/atoms-sandbox.google.com.a.appspot.com/blokk/blokk.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <nav id="navbar">
+        <span class="btn-close" onClick="closeSlideMenu()">&times;</span>
+        <header>JS Literals</header>
+        <ul class="nav-links">
+           <li><a href="#Overview" class="nav-link" onClick="closeSlideMenu()">Overview</a></li>
+           <li><a href="#Array" class="nav-link" onClick="closeSlideMenu()">Array</a></li>
+           <li><a href="#Boolean" class="nav-link" onClick="closeSlideMenu()">Boolean</a></li>
+           <li><a href="#Numeric" class="nav-link" onClick="closeSlideMenu()">Numeric</a></li>
+           <li><a href="#Object"  class="nav-link" onClick="closeSlideMenu()">Object</a></li>
+           <li><a href="#RegExp" class="nav-link" onClick="closeSlideMenu()">RegExp</a></li>
+           <li><a href="#String" class="nav-link" onClick="closeSlideMenu()">String</a></li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <div class="openNav">
+            <span id="open-slide" onClick="openSlideMenu()">
+                    <svg width="30" height="30" id="slider">
+                        <path d="M0,5 30,5" 
+                        stroke="#275b63" 
+                        stroke-width="2"/>
+                        <path d="M0,14 30,14" 
+                        stroke="#275b63" 
+                        stroke-width="2"/>
+                        <path d="M0,23 30,23" 
+                        stroke="#275b63" 
+                        stroke-width="2"/>
+                    </svg>
+            </span>
+        </div>
+
+        <main id="main-doc" onClick="closeifopenSlideMenu()">
+            <section class="main-section" id="Overview">
+                <header>Overview</header>
+                <article>
+                    <p>Literals represent values in JavaScript. 
+                        These are fixed values—not variables—that you literally provide in your script. 
+                        The following sections describe different types of literals.
+                    </p>
+                </article>
+            </section>
+            <section class="main-section" id="Array">
+                <header>Array</header>
+                <article>
+                    <p>An array literal is a list of zero or more expressions, each of which represents an array element, enclosed in square brackets (<code>[]</code>). When you create an array using an array literal, it is initialized with the specified values as its elements, and its <code>length</code> is set to the number of arguments specified.</p>
+                    <p>The following example creates the <code>coffees</code> array with three elements and a <code>length</code> of three:</p>
+                    <div class="code-example">
+                        <pre id="pre1"><code><span class="token keyword">let</span> coffees <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'French Roast'</span><span class="token punctuation">,</span> <span class="token string">'Colombian'</span><span class="token punctuation">,</span> <span class="token string">'Kona'</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <button id="btn1" class="btn" data-clipboard-target="#pre1">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <div class="note">
+                        <p><b>Note:</b> An array literal is a type of <em>object initializer</em>. See <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#using_object_initializers">Using Object Initializers</a>.</p>
+                    </div>
+                    <p>If an array is created using a literal in a top-level script, JavaScript interprets the array each time it evaluates the expression containing the array literal. In addition, a literal used in a function is created each time the function is called.</p>
+                    <div class="note">
+                        <p><b>Note:</b> Array literals are also <code>Array</code> objects. See <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"><code>Array</code></a> and <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections">Indexed collections</a> for details on <code>Array</code> objects.</p>
+                    </div>
+                    <h4 id="extra_commas_in_array_literals">Extra commas in array literals</h4>
+                    <p>You do not have to specify all elements in an array literal. If you put two commas in a row, the array fills in the value <code>undefined</code> for the unspecified elements. The following example creates the <code>fish</code> array:</p>
+                    <div class="code-example">
+                        <pre id="pre2"><code><span class="token keyword">let</span> fish <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Lion'</span><span class="token punctuation">,</span> <span class="token punctuation">,</span> <span class="token string">'Angel'</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <button id="btn2" class="btn" data-clipboard-target="#pre2">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <p>This array has two elements with values and one empty element:</p>
+                    <ul>
+                        <li><code>fish[0]</code> is "Lion"</li>
+                        <li><code>fish[1]</code> is <code>undefined</code></li>
+                        <li><code>fish[2]</code> is "Angel"</li>
+                    </ul>
+                    <p>If you include a trailing comma at the end of the list of elements, the comma is ignored.</p>
+                    <p>In the following example, the <code>length</code> of the array is three. There is no <code>myList[3]</code>. All other commas in the list indicate a new element.</p>
+                    <div class="note">
+                        <p><b>Note:</b> Trailing commas can create errors in older browser versions and it is a best practice to remove them.</p>
+                    </div>
+                    <div class="code-example">
+                        <pre id="pre3"><code><span class="token keyword">let</span> myList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'home'</span><span class="token punctuation">,</span> <span class="token punctuation">,</span> <span class="token string">'school'</span><span class="token punctuation">,</span> <span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <button class="btn" data-clipboard-target="#pre3">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <p>In the following example, the <code>length</code> of the array is four, and <code>myList[0]</code> and <code>myList[2]</code> are missing.</p>
+                    <div class="code-example">
+                        <pre id="pre4"><code><span class="token keyword">let</span> myList <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token punctuation">,</span><span class="token string">'home'</span><span class="token punctuation">,</span> <span class="token punctuation">,</span> <span class="token string">'school'</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <button class="btn" data-clipboard-target="#pre4">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <p>In the following example, the <code>length</code> of the array is four, and <code>myList[1]</code> and <code>myList[3]</code> are missing. <b>Only the last comma is ignored.</b></p>
+                    <div class="code-example">
+                        <pre id="pre5"><code><span class="token keyword">let</span> myList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'home'</span><span class="token punctuation">,</span> <span class="token punctuation">,</span> <span class="token string">'school'</span><span class="token punctuation">,</span> <span class="token punctuation">,</span> <span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <button class="btn" data-clipboard-target="#pre5">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <p>Understanding the behavior of extra commas is important to understanding JavaScript as a language.</p>
+                    <p>However, when writing your own code, you should explicitly declare the missing elements as <code>undefined</code>. Doing this increases your code's clarity and maintainability.</p>
+                </article>
+            </section>
+            <section class="main-section" id="Boolean">
+                <header>Boolean</header>
+                <article>
+                    <p>The Boolean type has two literal values: <code>true</code> and <code>false</code>.</p>
+                    <div class="note">
+                        <p><b>Note:</b> Do not confuse the primitive Boolean values <code>true</code> and <code>false</code> with the true and false values of the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"><code>Boolean</code></a> object.</p>
+                        <p>The Boolean object is a wrapper around the primitive Boolean data type. See <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"><code>Boolean</code></a> for more information.</p>
+                      </div>
+                </article>
+            </section>
+            <section class="main-section" id="Numeric">
+                <header>Numeric</header>
+                <article>
+                    <p>JavaScript numeric literals include integer literals in different bases as well as floating-point literals in base-10.</p>
+                    <p>Note that the language specification requires numeric literals to be unsigned. Nevertheless, code fragments like <code>-123.4</code> are fine, being interpreted as a unary <code>-</code> operator applied to the numeric literal <code>123.4</code>.</p>
+                    <h4 id="integer_literals">Integer literals</h4>
+                    <p>Integer and <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt"><code>BigInt</code></a> literals can be written in decimal (base 10), hexadecimal (base 16), octal (base 8) and binary (base 2).</p>
+                    <ul>
+                        <li>A <em>decimal</em> integer literal is a sequence of digits without a leading <code>0</code> (zero).</li>
+                        <li>A leading <code>0</code> (zero) on an integer literal, or a leading <code>0o</code> (or <code>0O</code>) indicates it is in <em>octal</em>. Octal integer literals can include only the digits <code>0</code>–<code>7</code>.</li>
+                        <li>A leading <code>0x</code> (or <code>0X</code>) indicates a <em>hexadecimal</em> integer literal. Hexadecimal integers can include digits (<code>0</code>–<code>9</code>) and the letters <code>a</code>–<code>f</code> and <code>A</code>–<code>F</code>. (The case of a character does not change its value. Therefore: <code>0xa</code> = <code>0xA</code> = <code>10</code> and <code>0xf</code> = <code>0xF</code> = <code>15</code>.)</li>
+                        <li>A leading <code>0b</code> (or <code>0B</code>) indicates a <em>binary</em> integer literal. Binary integer literals can only include the digits <code>0</code> and <code>1</code>.</li>
+                        <li>A trailing <code>n</code> suffix on an integer literal indicates a <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt"><code>BigInt</code></a> literal. The integer literal can use any of the above bases. Note that leading-zero octal syntax like <code>0123n</code> is not allowed, but <code>0o123n</code> is fine.</li>
+                    </ul>
+                    <p>Some examples of integer literals are:</p>
+                    <pre class="text-example">0, 117, 123456789123456789n             (decimal, base 10)
+015, 0001, 0o777777777777n              (octal, base 8)
+0x1123, 0x00111, 0x123456789ABCDEFn     (hexadecimal, "hex" or base 16)
+0b11, 0b0011, 0b11101001010101010101n   (binary, base 2)</pre>
+                    <p>For more information, see <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#numeric_literals">Numeric literals in the Lexical grammar reference</a>.</p>
+                    <h4 id="floating-point_literals">Floating-point literals</h4>
+                    <p>A floating-point literal can have the following parts:</p>
+                    <ul>
+                        <li>An unsigned decimal integer,</li>
+                        <li>A decimal point ("<code>.</code>"),</li>
+                        <li>A fraction (another decimal number),</li>
+                        <li>An exponent.</li>
+                    </ul>
+                    <p>The exponent part is an "<code>e</code>" or "<code>E</code>" followed by an integer, which can be signed (preceded by "<code>+</code>" or "<code>-</code>"). A floating-point literal must have at least one digit, and either a decimal point or "<code>e</code>" (or "<code>E</code>").</p>
+                    <p>More succinctly, the syntax is:</p>
+                    <pre class="text-example">[digits].[digits][(E|e)[(+|-)]digits]</pre>
+                    <p>For example:</p>
+                    <pre class="text-example">3.1415926
+.123456789
+3.1E+12
+.1e-23</pre>
+                </article>
+            </section>
+            <section class="main-section" id="Object">
+                <header>Object</header>
+                <article>
+                    <p>An object literal is a list of zero or more pairs of property names and associated values of an object, enclosed in curly braces (<code>{}</code>).</p>
+                    <div class="note warning">
+                        <p><b>Warning:</b> Do not use an object literal at the beginning of a statement! This will lead to an error (or not behave as you expect), because the <code>{</code> will be interpreted as the beginning of a block.</p>
+                    </div>
+                    <p>The following is an example of an object literal. The first element of the <code>car</code> object defines a property, <code>myCar</code>, and assigns to it a new string, "<code>Saturn</code>"; the second element, the <code>getCar</code> property, is immediately assigned the result of invoking the function <code>(carTypes("Honda"))</code>; the third element, the <code>special</code> property, uses an existing variable (<code>sales</code>).</p>
+                    <div class="code-example"><pre id="pre6"><code><span class="token keyword">var</span> sales <span class="token operator">=</span> <span class="token string">'Toyota'</span><span class="token punctuation">;</span>
+                    
+<span class="token keyword">function</span> <span class="token function">carTypes</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>name <span class="token operator">===</span> <span class="token string">'Honda'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"Sorry, we don't sell "</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"."</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> car <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">myCar</span><span class="token operator">:</span> <span class="token string">'Saturn'</span><span class="token punctuation">,</span> <span class="token literal-property property">getCar</span><span class="token operator">:</span> <span class="token function">carTypes</span><span class="token punctuation">(</span><span class="token string">'Honda'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token literal-property property">special</span><span class="token operator">:</span> sales <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>car<span class="token punctuation">.</span>myCar<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Saturn</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>car<span class="token punctuation">.</span>getCar<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Honda</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>car<span class="token punctuation">.</span>special<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Toyota</span>
+</code></pre>
+                    <button class="btn" data-clipboard-target="#pre6">
+                        <i class="fa fa-clone"></i>
+                    </button>
+                    </div>
+                    <p>Additionally, you can use a numeric or string literal for the name of a property or nest an object inside another. The following example uses these options.</p>
+                    <div class="code-example"><pre id="pre7"><code><span class="token keyword">var</span> car <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">manyCars</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token string">'Saab'</span><span class="token punctuation">,</span> <span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token string">'Jeep'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token operator">:</span> <span class="token string">'Mazda'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>car<span class="token punctuation">.</span>manyCars<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Jeep</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>car<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Mazda</span>
+</code></pre>
+                    <button class="btn" data-clipboard-target="#pre7">
+                        <i class="fa fa-clone"></i>
+                    </button>
+                    </div>
+                    <p>Object property names can be any string, including the empty string. If the property name would not be a valid JavaScript <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/Identifier">identifier</a> or number, it must be enclosed in quotes.</p>
+                    <p>Property names that are not valid identifiers cannot be accessed as a dot (<code>.</code>) property, but <em>can</em> be accessed and set with the array-like notation("<code>[]</code>").</p>
+                    <div class="code-example"><pre id="pre8"><code><span class="token keyword">var</span> unusualPropertyNames <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">''</span><span class="token operator">:</span> <span class="token string">'An empty string'</span><span class="token punctuation">,</span>
+    <span class="token string-property property">'!'</span><span class="token operator">:</span> <span class="token string">'Bang!'</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>unusualPropertyNames<span class="token punctuation">.</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// SyntaxError: Unexpected string</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>unusualPropertyNames<span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// An empty string</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>unusualPropertyNames<span class="token punctuation">.</span><span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// SyntaxError: Unexpected token !</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>unusualPropertyNames<span class="token punctuation">[</span><span class="token string">'!'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Bang!</span></code></pre>
+                    <button class="btn" data-clipboard-target="#pre8">
+                        <i class="fa fa-clone"></i>
+                    </button>
+                    </div>
+                    <h4 id="enhanced_object_literals">Enhanced Object literals</h4>
+                    <p>In ES2015, object literals are extended to support setting the prototype at construction, shorthand for <code>foo: foo</code> assignments, defining methods, making <code>super</code> calls, and computing property names with expressions.</p>
+                    <p>Together, these also bring object literals and class declarations closer together, and allow object-based design to benefit from some of the same conveniences.</p>
+                    <div class="code-example"><pre id="pre9"><code><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">// __proto__</span>
+    <span class="token literal-property property">__proto__</span><span class="token operator">:</span> theProtoObj<span class="token punctuation">,</span>
+    <span class="token comment">// Shorthand for ‘handler: handler’</span>
+    handler<span class="token punctuation">,</span>
+    <span class="token comment">// Methods</span>
+    <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Super calls</span>
+        <span class="token keyword">return</span> <span class="token string">'d '</span> <span class="token operator">+</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// Computed (dynamic) property names</span>
+    <span class="token punctuation">[</span> <span class="token string">'prop_'</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">]</span><span class="token operator">:</span> <span class="token number">42</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+                    <button class="btn" data-clipboard-target="#pre9">
+                        <i class="fa fa-clone"></i>
+                    </button>
+                    </div>
+                </article>
+            </section>
+            <section class="main-section" id="RegExp">
+                <header>RegExp</header>
+                <article>
+                    <p>A regex literal (which is defined in detail <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">later</a>) is a pattern enclosed between slashes. The following is an example of a regex literal.</p>
+                    <div class="code-example">
+                        <pre id="pre10"><code><span class="token keyword">var</span> re <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">ab+c</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span></code></pre>
+                        <button class="btn" data-clipboard-target="#pre10">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                </article>
+            </section>
+            <section class="main-section" id="String">
+                <header>String</header>
+                <article>
+                    <p>A string literal is zero or more characters enclosed in double (<code>"</code>) or single (<code>'</code>) quotation marks. A string must be delimited by quotation marks of the same type (that is, either both single quotation marks, or both double quotation marks).</p>
+                    <p>The following are examples of string literals:</p>
+                    <div class="code-example">
+                        <pre id="pre11"><code><span class="token string">'foo'</span>
+<span class="token string">"bar"</span>
+<span class="token string">'1234'</span>
+<span class="token string">'one line \n another line'</span>
+<span class="token string">"John's cat"</span></code></pre>
+                        <button class="btn" data-clipboard-target="#pre11">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <p>You should use string literals unless you specifically need to use a <code>String</code> object. See <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"><code>String</code></a> for details on <code>String</code> objects.</p>
+                    <p>You can call any of the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"><code>String</code></a> object's methods on a string literal value. JavaScript automatically converts the string literal to a temporary String object, calls the method, then discards the temporary String object. You can also use the <code>String.length</code> property with a string literal:</p>
+                    <div class="code-example">
+                        <pre id="pre12"><code><span class="token comment">// Will print the number of symbols in the string including whitespace.</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"John's cat"</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span>  <span class="token comment">// In this case, 10.</span>
+</code></pre>
+                        <button class="btn" data-clipboard-target="#pre12">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <p><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template literals</a> are also available. Template literals are enclosed by the back-tick (<code>`</code>) (<a target="_blank" href="https://en.wikipedia.org/wiki/Grave_accent" class="external" rel=" noopener">grave accent</a>) character instead of double or single quotes.</p>
+                    <p>Template literals provide syntactic sugar for constructing strings. (This is similar to string interpolation features in Perl, Python, and more.)</p>
+                    <div class="code-example">
+                        <pre id="pre13"><code><span class="token comment">// Basic literal string creation</span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">In JavaScript '\n' is a line-feed.</span><span class="token template-punctuation string">`</span></span>
+
+<span class="token comment">// Multiline strings</span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">In JavaScript, template strings can run
+over multiple lines, but double and single
+quoted strings cannot.</span><span class="token template-punctuation string">`</span></span>
+
+<span class="token comment">// String interpolation</span>
+<span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Bob'</span><span class="token punctuation">,</span> time <span class="token operator">=</span> <span class="token string">'today'</span><span class="token punctuation">;</span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, how are you </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>time<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">?</span><span class="token template-punctuation string">`</span></span>
+</code></pre>
+                        <button class="btn" data-clipboard-target="#pre13">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                </div>
+                    <p><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_template">Tagged templates</a> are a compact syntax for specifying a template literal along with a call to a “tag” function for parsing it; the name of the template tag function precedes the template literal — as in the following example, where the template tag function is named "<code>myTag</code>":</p>
+                    <div class="code-example">
+                        <pre id="pre14"><code><span class="token keyword">let</span> <span class="token function-variable function">myTag</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">str<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>str<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>str<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>age<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>str<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>name<span class="token punctuation">,</span> age<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Mika'</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+myTag<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Participant "</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> name <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">" is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> age <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> years old.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token comment">// Participant "Mika" is 28 years old.</span>
+</code></pre>
+                        <button class="btn" data-clipboard-target="#pre14">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <h4 id="using_special_characters_in_strings">Using special characters in strings</h4>
+                    <p>In addition to ordinary characters, you can also include special characters in strings, as shown in the following example.</p>
+                    <div class="code-example">
+                        <pre id="pre15"><code><span class="token string">'one line \n another line'</span></code></pre>
+                        <button class="btn" data-clipboard-target="#pre15">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <p>The following table lists the special characters that you can use in JavaScript strings.</p>
+                    <table class="standard-table">
+                        <caption>Table: JavaScript special characters</caption>
+                        <thead>
+                        <tr>
+                            <th scope="col">Character</th>
+                            <th scope="col">Meaning</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><code>\0</code></td>
+                            <td>Null Byte</td>
+                        </tr>
+                        <tr>
+                            <td><code>\b</code></td>
+                            <td>Backspace</td>
+                        </tr>
+                        <tr>
+                            <td><code>\f</code></td>
+                            <td>Form feed</td>
+                        </tr>
+                        <tr>
+                            <td><code>\n</code></td>
+                            <td>New line</td>
+                        </tr>
+                        <tr>
+                            <td><code>\r</code></td>
+                            <td>Carriage return</td>
+                        </tr>
+                        <tr>
+                            <td><code>\t</code></td>
+                            <td>Tab</td>
+                        </tr>
+                        <tr>
+                            <td><code>\v</code></td>
+                            <td>Vertical tab</td>
+                        </tr>
+                        <tr>
+                            <td><code>\'</code></td>
+                            <td>Apostrophe or single quote</td>
+                        </tr>
+                        <tr>
+                            <td><code>\"</code></td>
+                            <td>Double quote</td>
+                        </tr>
+                        <tr>
+                            <td><code>\\</code></td>
+                            <td>Backslash character</td>
+                        </tr>
+                        <tr>
+                            <td><code>\<em>XXX</em></code></td>
+                            <td>
+                            The character with the Latin-1 encoding specified by up to three octal
+                            digits <em>XXX</em> between <code>0</code> and
+                            <code>377</code>.<br>For example, <code>\251</code> is the octal
+                            sequence for the copyright symbol.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>\x<em>XX</em></code></td>
+                            <td>
+                            <p>
+                                The character with the Latin-1 encoding specified by the two
+                                hexadecimal digits <em>XX</em> between <code>00</code> and
+                                <code>FF</code>.<br>For example, <code>\xA9</code> is the
+                                hexadecimal sequence for the copyright symbol.
+                            </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>\u<em>XXXX</em></code></td>
+                            <td>
+                            The Unicode character specified by the four hexadecimal digits
+                            <em>XXXX</em>.<br>For example, <code>\u00A9</code> is the Unicode
+                            sequence for the copyright symbol. See
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#string_literals">Unicode escape sequences</a>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>\u<em>{XXXXX}</em></code></td>
+                            <td>
+                            Unicode code point escapes.<br>For example, <code>\u{2F804}</code> is
+                            the same as the simple Unicode escapes <code>\uD87E\uDC04</code>.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h4 id="escaping_characters">Escaping characters</h4>
+                    <p>For characters not listed in the table, a preceding backslash is ignored, but this usage is deprecated and should be avoided.</p>
+                    <p>You can insert a quotation mark inside a string by preceding it with a backslash. This is known as <em>escaping</em> the quotation mark. For example:</p>
+                    <div class="code-example">
+                        <pre id="pre16"><code><span class="token keyword">var</span> quote <span class="token operator">=</span> <span class="token string">"He read \"The Cremation of Sam McGee\" by R.W. Service."</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>quote<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <button class="btn" data-clipboard-target="#pre16">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <p>The result of this would be:</p>
+                    <pre class="text-example">He read "The Cremation of Sam McGee" by R.W. Service.</pre>
+                    <p>To include a literal backslash inside a string, you must escape the backslash character. For example, to assign the file path <code>c:\temp</code> to a string, use the following:</p>
+                    <div class="code-example">
+                        <pre id="pre17"><code><span class="token keyword">var</span> home <span class="token operator">=</span> <span class="token string">'c:\\temp'</span><span class="token punctuation">;</span></code></pre>
+                        <button class="btn" data-clipboard-target="#pre17">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <p>You can also escape line breaks by preceding them with backslash. The backslash and line break are both removed from the value of the string.</p>
+                    <div class="code-example"><pre id="pre18"><code><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'this string \
+is broken \
+across multiple \
+lines.'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// this string is broken across multiple lines.</span>
+</code></pre>
+                        <button class="btn" data-clipboard-target="#pre18">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <p>Although JavaScript does not have "heredoc" syntax, you can get close by adding a line break escape and an escaped line break at the end of each line:</p>
+                    <div class="code-example"><pre id="pre19"><code><span class="token keyword">var</span> poem <span class="token operator">=</span>
+<span class="token string">'Roses are red,\n\
+Violets are blue.\n\
+Sugar is sweet,\n\
+and so is foo.'</span>
+</code></pre>
+                        <button class="btn" data-clipboard-target="#pre19">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                    <p>ECMAScript 2015 introduces a new type of literal, namely <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals"><b>template literals</b></a>. This allows for many new features, including multiline strings!</p>
+                    <div class="code-example"><pre id="pre20"><code><span class="token keyword">var</span> poem <span class="token operator">=</span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Roses are red,
+Violets are blue.
+Sugar is sweet,
+and so is foo.</span><span class="token template-punctuation string">`</span></span> 
+</code></pre>
+                        <button class="btn" data-clipboard-target="#pre20">
+                            <i class="fa fa-clone"></i>
+                        </button>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js">
+    </script>
+    <script>
+        closeSlideMenu();
+
+        var bla = new ClipboardJS('.btn');
+        
+        bla.on('success', function(e) {
+            e.clearSelection();
+            var id = e.trigger.id;
+            console.log(e.trigger.getElementsByTagName('i')[0].classList);
+            e.trigger.getElementsByTagName('i')[0].classList.remove("fa-clone");
+            e.trigger.getElementsByTagName('i')[0].classList.add("fa-check");
+            setTimeout(function() {
+                 e.trigger.getElementsByTagName('i')[0].classList.add("fa-clone");
+            }, 2500);
+        });
+
+        var isOpen = false;
+        function openSlideMenu() {
+            isOpen = true;
+            document.getElementById('navbar').style.width = "250px";
+            document.getElementById('open-slide').style.visibility = "hidden";
+        }
+        function closeSlideMenu() {
+            isOpen = false;
+            document.getElementById('navbar').style.width = "0";
+            document.getElementById('open-slide').style.visibility = "visible";
+
+        }
+        function closeifopenSlideMenu() {
+            if(isOpen) {
+                closeSlideMenu();
+            }
+        }
+    </script>
+  </body>
+</html>
