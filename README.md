@@ -3,7 +3,7 @@
 Technical Documentation Page is a freeCodeCamp project.
 
 codepen page:
-https://codepen.io/fjkdsn/pen/WNZLdQj
+https://codepen.io/fjkdsn/full/qBPxMxv
 
 github page:
 https://l-diasa.github.io/Documentation-page/
