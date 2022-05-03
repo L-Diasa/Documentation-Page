@@ -1,6 +1,6 @@
 # Documentation Page
 
-Technical Documentation Page is a freeCodeCamp project.
+technical Documentation Page is a freeCodeCamp project.
 
 codepen page:
 https://codepen.io/fjkdsn/full/qBPxMxv
