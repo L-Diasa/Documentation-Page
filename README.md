@@ -1,4 +1,4 @@
-# Documentation-page
+# Documentation Page
 
 Technical Documentation Page is a freeCodeCamp project.
 
@@ -8,6 +8,6 @@ https://codepen.io/fjkdsn/full/qBPxMxv
 github page:
 https://l-diasa.github.io/Documentation-page/
 
-project description:
+description:
 https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-technical-documentation-page
 
